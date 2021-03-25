@@ -56,6 +56,17 @@ export default new Vuex.Store({
       commit('CLEAR_COMPLETED');
     }
   },
+  getters: {
+    getAll: state => {
+      return state.list;
+    },
+    getAllCompleted: state => {
+      return state.list.filter(({completed}) => completed === true);
+    },
+    getAllActive: state => {
+      return state.list.filter(({completed}) => completed === false)
+    }
+  },
   modules: {
   }
 })

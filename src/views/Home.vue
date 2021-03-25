@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <TodoList :list="list" />
+    <TodoList :list="getAll" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import TodoList from '../components/TodoList';
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Home',
@@ -15,7 +15,7 @@ export default {
     TodoList,
   },
   computed: {
-    ...mapState(["list"])
+    ...mapGetters(["getAll"])
   }
 }
 </script>

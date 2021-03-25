@@ -1,11 +1,11 @@
 <template>
   <div class="active-container">
-      <TodoList :list="filterByActiveTask" />
+      <TodoList :list="getAllActive" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import TodoList from '../components/TodoList';
 
 
@@ -16,7 +16,7 @@ export default {
     components: { TodoList },
 
     computed: {
-        ...mapState(["list"]),
+        ...mapGetters(["getAllActive"]),
 
         filterByActiveTask() {
             return this.list.filter(({completed}) => completed === false)

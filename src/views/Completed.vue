@@ -1,11 +1,11 @@
 <template>
   <div class="completed-container">
-      <TodoList :list="getCompletedTasks" />
+      <TodoList :list="getAllCompleted" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import TodoList from '../components/TodoList';
 
 export default {
@@ -13,7 +13,7 @@ export default {
     components: { TodoList },
 
     computed: {
-        ...mapState(["list"]),
+        ...mapGetters(["getAllCompleted"]),
 
         getCompletedTasks() {
             return this.list.filter(({completed}) => completed === true)
